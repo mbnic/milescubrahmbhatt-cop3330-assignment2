@@ -15,8 +15,6 @@ public class App {
         String userPass = myApp.getPassword();
         int strength = myApp.passwordValidator(userPass);
         System.out.println(strength);
-
-
     }
 
     public int passwordValidator(String pass) {
