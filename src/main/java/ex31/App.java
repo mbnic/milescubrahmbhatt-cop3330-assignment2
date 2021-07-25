@@ -15,7 +15,7 @@ public class App {
         Person p = new Person();
         myApp.getInfo(p);
         int[] bpmArray = new int[9];
-        myApp.doCalculations(p, bpmArray);
+        bpmArray = myApp.doCalculations(p, bpmArray);
         myApp.printOutput(bpmArray);
     }
 
@@ -32,13 +32,9 @@ public class App {
             i++;
             intensity += 5;
         }
-
-
-
-
     }
 
-    public void doCalculations(Person p, int[] arr) {
+    public int[] doCalculations(Person p, int[] arr) {
         double intensity = 0.55;
         double result;
         int i = 0;
@@ -51,6 +47,8 @@ public class App {
             intensity += .05;
             i++;
         }
+
+        return arr;
     }
 
     public void getInfo(Person p) {

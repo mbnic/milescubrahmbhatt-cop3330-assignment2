@@ -5,6 +5,8 @@
 
 package ex25;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class App {
     private static final Scanner in = new Scanner(System.in);
@@ -19,9 +21,6 @@ public class App {
 
     public int passwordValidator(String pass) {
 
-        String specialChars = "!@#$%&*()'+,-./:;<=>?[]^_`{|}";
-        char[] specialCharsArr = pass.toCharArray();
-
         //very weak
         if (pass.matches("[0-9]+") && pass.length() < 8)
             return 1;
@@ -30,20 +29,18 @@ public class App {
         if (pass.matches("[a-z A-Z]+") && pass.length() < 8)
             return 2;
 
-        //strong
-        if (pass.matches("[0-9 A-Z a-z]+") && pass.length() >= 8) {
 
-            //very strong
-            for (int i = 0; i < pass.length(); i++) {
-                if (pass.contains(Character.toString(specialChars.charAt(i))))
-                    return 4;
-            }
+        if (pass.length() >= 8) {
 
-            return 3;
+            Pattern p = Pattern.compile("[^A-Za-z0-9 ]");
+            Matcher m = p.matcher(pass);
+
+            if (m.find())
+                return 4;
+
+            if (pass.matches("[0-9 A-Z a-z]+"))
+                return 3;
         }
-
-
-
 
         return 0;
     }

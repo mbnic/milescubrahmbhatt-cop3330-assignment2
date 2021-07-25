@@ -4,8 +4,8 @@
  */
 package ex39;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Map;
 
 
 public class App {
@@ -13,21 +13,10 @@ public class App {
         App myApp = new App();
         ArrayList<HashMap<String, String>> employees = new ArrayList<>();
 
+        Map<String, String> test = new HashMap<>();
+
         myApp.fillEmployeeInfo(employees);
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
 
     public void fillEmployeeInfo(ArrayList<HashMap<String, String>> employees) {
 

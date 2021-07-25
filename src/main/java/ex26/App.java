@@ -35,6 +35,4 @@ public class App {
         System.out.print("What is the monthly payment you can make? ");
         card.monthlyPayment = in.nextFloat();
     }
-
-
 }

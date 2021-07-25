@@ -12,6 +12,10 @@ public class App {
 
     public static void main(String[] args) {
         App myApp = new App();
+        myApp.printTable();
+    }
+
+    public void printTable() {
         int i, j;
 
         for (i = 1; i <= 12; i++) {

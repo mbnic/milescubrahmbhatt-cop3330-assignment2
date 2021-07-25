@@ -2,8 +2,6 @@ package ex27;
 
 public class Validation {
 
-    // STILL HAVE TO MAKE IT SINGLE OUT PUT AND CREATE TEST FOR THIS EXERCISE   ///////////
-
     public void validateInput(UserInfo user) {
         validateFirstName(user.firstName);
         validateLastName(user.lastName);

@@ -5,6 +5,7 @@
 
 package ex34;
 
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -29,7 +30,7 @@ public class App {
 
     public void deleteName(ArrayList<String> names, String delName) {
         for (int i = 0; i < names.size(); i++) {
-            if (delName.equals(names.get(i)))
+            if (delName.toUpperCase(Locale.ROOT).equals(names.get(i).toUpperCase(Locale.ROOT)))
                 names.remove(i);
         }
     }
