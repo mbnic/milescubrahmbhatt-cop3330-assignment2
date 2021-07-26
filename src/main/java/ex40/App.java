@@ -1,24 +1,27 @@
-/*
- *  UCF COP3330 Summer 2021 Assignment 2 Solution
- *  Copyright 2021 Nicolas Milescu-Brahmbhatt
- */
-package ex39;
+package ex40;
+
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
-
+import java.util.Locale;
+import java.util.Scanner;
 
 public class App {
+
     public static void main(String[] args) {
         App myApp = new App();
         ArrayList<HashMap<String, String>> employees = new ArrayList<>();
 
         myApp.fillEmployeeInfo(employees);
 
-        myApp.printOut(employees);
+        System.out.printf("Enter a search string: ");
+        Scanner in = new Scanner(System.in);
+        String query = in.next().toUpperCase(Locale.ROOT);
+        System.out.println("Results: \n");
+
+        myApp.printOut(employees, query);
     }
 
-    public void printOut(ArrayList<HashMap<String, String>> employees) {
+    public void printOut(ArrayList<HashMap<String, String>> employees, String query) {
 
         String n = "Name";
         String pos = "Position";
@@ -28,13 +31,16 @@ public class App {
 
         for (int i = 0; i < employees.size(); i++) {
             String name = employees.get(i).get("firstname") + " " + employees.get(i).get("lastname");
-            String position = employees.get(i).get("position");
-            String separation = employees.get(i).get("separation");
 
-            System.out.printf("%-20s %-20s %-12s\n", name, position, separation);
+            if (name.toUpperCase(Locale.ROOT).contains(query)) {
+                String position = employees.get(i).get("position");
+                String separation = employees.get(i).get("separation");
 
+                System.out.printf("%-20s %-20s %-12s\n", name, position, separation);
+            }
         }
     }
+
 
     public void fillEmployeeInfo(ArrayList<HashMap<String, String>> employees) {
 
@@ -80,9 +86,6 @@ public class App {
         touMap.put("separation", "2016-10-05");
         employees.add(touMap);
     }
-
-
-
 
 
 }

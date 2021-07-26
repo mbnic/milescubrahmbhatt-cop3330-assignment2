@@ -16,9 +16,10 @@ public class App {
 
         myApp.getCCinfo(userCard);
 
-        double months = calculator.calculateMonthsUntilPaidOff(userCard.balance, userCard.dailyRate, userCard.monthlyPayment);
+        //double months =
+        calculator.calculateMonthsUntilPaidOff(userCard.balance, userCard.dailyRate, userCard.monthlyPayment);
 
-        myApp.printOutput(months);
+        myApp.printOutput(calculator.getResult());
     }
 
     public void printOutput(double months) {

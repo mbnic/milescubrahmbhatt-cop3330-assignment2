@@ -23,7 +23,7 @@ public class App {
 
     public String generatePass(Password passInfo) {
         ArrayList<String> charType = new ArrayList<>();
-        charType.add("0123456789");
+        //charType.add("0123456789");
         charType.add("!@#$%^&*_=+-/");
         charType.add("abcdefghijklmnopqrstuvwxyz");
 
@@ -35,29 +35,29 @@ public class App {
         int numValues = 0;
         int index;
 
-        System.out.println(charType.get(1));
+        char[] numbers = {0,1,2,3,4,5,6,7,8,9};
 
         for (int i = 0; i < passInfo.length; i++) {
 
             randCharType = rand.nextInt(3);
 
             if (randCharType == 0 && numValues < passInfo.numbers) {
-                index = rand.nextInt(charType.get(0).length());
-                result[i] = charType.get(0).charAt(index);
+                index = rand.nextInt(9);
+                result[i] = numbers[index];
                 numValues++;
             }
 
             if (randCharType == 1 && numSpecialChars < passInfo.special) {
-                index = rand.nextInt(charType.get(1).length());
-                result[i] = charType.get(1).charAt(index);
+                index = rand.nextInt(charType.get(0).length());
+                result[i] = charType.get(0).charAt(index);
                 numSpecialChars++;
             }
             else {
-                index = rand.nextInt(charType.get(2).length());
-                result[i] = charType.get(2).charAt(index);
+                index = rand.nextInt(charType.get(1).length());
+                result[i] = charType.get(1).charAt(index);
             }
-
         }
+
 
         return new String(result);
     }

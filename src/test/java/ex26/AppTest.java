@@ -8,10 +8,8 @@ class AppTest {
     @Test
     void paymentCalculator_returns_right_answer() {
         PaymentCalculator calc = new PaymentCalculator();
+        calc.calculateMonthsUntilPaidOff(5000, 12, 100);
 
-        double ans = calc.calculateMonthsUntilPaidOff(5000, 12, 100);
-
-        assertEquals(69, ans);
-
+        assertEquals(69.0, calc.getResult());
     }
 }

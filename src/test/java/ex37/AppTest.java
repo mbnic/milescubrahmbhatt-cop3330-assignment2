@@ -23,8 +23,10 @@ class AppTest {
                 num++;
         }
 
+        int specialCount = pass.length() - pass.replaceAll("\\$","").length();
+
         assertEquals(info.length, pass.length());
-        assertEquals(info.numbers, num);
+        assertEquals(info.special, specialCount);
 
     }
 }
